@@ -1,6 +1,6 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: #997011;
+  background: transparent;
   padding: 16px 72px;
 }
 
@@ -14,4 +14,5 @@
 
 .navbar-light .navbar-nav .nav-link, .navbar-light .navbar-nav .active > .nav-link, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .nav-link.active, a i {
     color: #f4f4f4;
+    font-weight: bold;
 }

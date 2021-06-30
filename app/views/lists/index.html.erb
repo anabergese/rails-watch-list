@@ -1,8 +1,8 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://www.larcenter.com.br/wp-content/uploads/sites/3/curriculos/Banner-Site-Home-Cinema-1024x304.png);">
+<div class="banner" style="background-image: url(https://images.creativemarket.com/0.1.0/ps/7313032/3000/2502/m1/fpnw/wm0/112-.jpg?1573926560&s=1f326cbc471c3dd442bbd5891af94e40);">
   <div class="container">
     <h1>Save any kind of movies</h1>
-    <p>Create your list of your favourites films.</p>
-    <a class="btn btn-flat" href="#">Apply now</a>
+    <p>Create lists of your favourites films.</p>
+    <%= link_to 'Create a movie list', new_list_path, class: 'btn btn-success' %>
   </div>
 </div>
 
@@ -12,7 +12,3 @@
     <li><%= list.name %> - <p><%= link_to 'Add bookmarks', new_list_bookmark_path(list), class: 'btn btn-secondary' %></p></li>
   </ul>
 <% end %>
-
-<p><%= link_to 'Create a movie list', new_list_path, class: 'btn btn-success' %>
-</p>
-
