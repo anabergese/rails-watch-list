@@ -6,12 +6,13 @@
   </div>
 </div>
 
-<div class="main-container d-flex">
+<div class="main-container d-flex flex-wrap">
   <% @lists.each do |list| %>
     <ul>
       <li>
         <h3><%= list.name %></h3>
-        <p><%= link_to 'Add bookmarks', new_list_bookmark_path(list), class: 'btn btn-success' %></p>
+        <p><%= link_to 'Add movie', new_list_bookmark_path(list), class: 'btn btn-success' %></p>
+        <p><%= link_to 'See this list', list_path(list), class: 'btn btn-success' %></p>
       </li>
     </ul>
   <% end %>
