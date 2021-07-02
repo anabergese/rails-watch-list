@@ -7,6 +7,7 @@ class ListsController < ApplicationController
 
   def show
     @bookmark = Bookmark.new
+    @bookmarks = Bookmark.where(list_id: @list.id)
   end
 
   def new
