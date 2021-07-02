@@ -1,9 +1,12 @@
 <div class="main-container">
   <h3>Add a movie to your <%= @list.name %> list</h3>
   <%= simple_form_for [@list, @bookmark] do |f|%>
-  <%= f.input :comment, placeholder: 'Enter a comment about the movie' %>
-  <%= f.input :movie_id %>
-  <%= f.submit class: 'btn btn-success' %>
+  <div class="form-inputs">
+    <%= f.input :comment %>
+    <%= f.association :movie, prompt: 'Select movie', input_html: { class: 'select2' } %>
+  </div>
+  <div class="form-actions">
+    <%= f.submit class: "btn btn-info" %>
+  </div>
   <% end %>
 </div>
-
