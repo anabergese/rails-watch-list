@@ -6,15 +6,18 @@
   </div>
 </div>
 
-<div class="main-container d-flex flex-wrap">
+<div class="row main-container">
+  <h2 class="text-center">Lists of movies</h2>
   <% @lists.each do |list| %>
-    <ul>
-      <li>
-        <h3><%= list.name %></h3>
-        <p><%= link_to 'Add movie', new_list_bookmark_path(list), class: 'btn btn-success' %></p>
-        <p><%= link_to 'See this list', list_path(list), class: 'btn btn-success' %></p>
-      </li>
-    </ul>
+  <div class="col-sm-6">
+    <div class="card mt-5">
+      <div class="card-body">
+        <h5 class="card-title"><%= list.name %></h5>
+        <p class="card-text"><i class="fas fa-film"></i></p>
+        <%= link_to 'Add movie', new_list_bookmark_path(list), class: 'btn text-white' %>
+        <%= link_to 'See this list', list_path(list), class: 'btn text-white' %>
+      </div>
+    </div>
+  </div>
   <% end %>
 </div>
-
