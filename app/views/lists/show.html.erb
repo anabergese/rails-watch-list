@@ -9,7 +9,7 @@
         <p><strong>Overview:</strong> <%= bookmark.movie.overview %></p>
         <p><strong>Rating:</strong> <%= bookmark.movie.rating %></p>
         <p><strong>Comment:</strong> <%= bookmark.comment %></p>
-        <small class= "text-right flex-shrink-0"><%= link_to "Delete a bookmark", bookmark_path(bookmark), method: :delete, data: { confirm: "Are you sure you want to delete #{bookmark.movie.title} from #{@list.name}"}, class: 'text-dark' %></small>
+        <p class= "text-right flex-shrink-0"><%= link_to "Delete a bookmark", bookmark_path(bookmark.id), method: :delete, class: 'text-dark' %></p>
       </div>
     </div>
   <% end %>
