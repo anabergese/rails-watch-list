@@ -1,15 +1,15 @@
 <div class="main-container">
   <h1 class="text-center"><%= @list.name %> movies</h1>
   <div class="grid">
-  <% @bookmarks.each do |bookmark| %>
+  <% @list.movies.each do |movie| %>
+  <% bookmark = Bookmark.find_by(list: @list, movie: movie) %>
   <div class="card-trip">
     <div class="card-trip-infos">
-        <%=  image_tag bookmark.movie.poster_url %>
-        <h2><%= bookmark.movie.title %></h2>
-        <p><strong>Overview:</strong> <%= bookmark.movie.overview %></p>
-        <p><strong>Rating:</strong> <%= bookmark.movie.rating %></p>
-        <p><strong>Comment:</strong> <%= bookmark.comment %></p>
-        <p class= "text-right flex-shrink-0"><%= link_to "Delete a bookmark", bookmark_path(bookmark.id), method: :delete, class: 'text-dark' %></p>
+        <%=  image_tag movie.poster_url %>
+        <h2><%= movie.title %></h2>
+        <p><strong>Overview:</strong> <%= movie.overview %></p>
+        <p><strong>Rating:</strong> <%= movie.rating %></p>
+        <p class= "text-right flex-shrink-0"><%= link_to "Delete a bookmark", bookmark_path(@list, @bookmark), method: :delete, class: 'text-dark' %></p>
       </div>
     </div>
   <% end %>
