@@ -1,5 +1,5 @@
 class ListsController < ApplicationController
-  before_action :set_list, only: [:show, :destroy]
+  before_action :set_list, only: [:show]
 
   def index
     @lists = List.all
@@ -24,8 +24,9 @@ class ListsController < ApplicationController
   end
 
   def destroy
+    @list.bookmarks.delete_all
     @list.destroy
-    redirect_to lists_path
+    redirect_to root_path
   end
 
   private
