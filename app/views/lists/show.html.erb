@@ -1,20 +1,21 @@
 <div class="main-container">
   <h1 class="text-center"><%= @list.name %> movies</h1>
   <div class="grid">
-  <% @list.bookmarks.each do |bookmark| %>
+  <% @list.movies.each do |movie| %>
     <div class="card-trip">
     <div class="card-trip-infos">
-        <%=  image_tag bookmark.movie.poster_url %>
-        <h2><%= bookmark.movie.title %></h2>
-        <p><strong>Overview:</strong> <%= bookmark.movie.overview %></p>
-        <p><strong>Rating:</strong> <%= bookmark.movie.rating %></p>
-        <p class= "text-right flex-shrink-0"><%= link_to "Delete", list_bookmark_path(bookmark), method: :delete, class: 'text-dark' %></p>
+        <%=  image_tag movie.poster_url %>
+        <h2><%= movie.title %></h2>
+        <p><strong>Overview:</strong> <%= movie.overview %></p>
+        <p><strong>Rating:</strong> <%= movie.rating %></p>
+        <% bookmark = Bookmark.find_by(list: @list, movie: movie) %>
+        <p class= "text-right flex-shrink-0"><%= link_to "Delete", bookmark_path(bookmark), method: :delete, data: { confirm: 'Are you sure?'}, class: 'text-dark' %></p>
       </div>
     </div>
   <% end %>
   </div>
   <div class="card-buttons mt-5 text-center">
-    <%= link_to 'Detete this list', @list, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-info' %>
+    <%= link_to 'Detete this list', list_path(@list), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-info' %>
     <%= link_to 'Add a movie', new_list_bookmark_path(@list), class: 'btn btn-info' %>
     <%= link_to 'Back to index', root_path, class: 'btn btn-info' %>
   </div>
