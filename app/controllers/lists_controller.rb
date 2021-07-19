@@ -6,8 +6,6 @@ class ListsController < ApplicationController
   end
 
   def show
-    @bookmark = Bookmark.new
-    # @bookmarks = Bookmark.where(list_id: @list.id)
   end
 
   def new
@@ -19,22 +17,24 @@ class ListsController < ApplicationController
     if @list.save
       redirect_to list_path(@list)
     else
-      render :new
+      render :new, data: :confirm
     end
   end
 
   def destroy
+    @list = List.find(params[:id])
     @list.destroy
-    redirect_to lists_path
+    redirect_to root_path
   end
 
   private
 
-  def list_params
-    params.require(:list).permit(:name, :photo)
-  end
-
   def set_list
     @list = List.find(params[:id])
   end
+
+  def list_params
+    params.require(:list).permit(:name)
+  end
+
 end

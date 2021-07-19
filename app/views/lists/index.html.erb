@@ -16,6 +16,7 @@
         <p class="card-text"><i class="fas fa-film"></i></p>
         <%= link_to 'Add movie', new_list_bookmark_path(list), class: 'btn text-dark' %>
         <%= link_to 'See this list', list_path(list), class: 'btn text-dark' %>
+        <%= link_to 'Delete list', list_path(list), method: :delete, data: { confirm: 'Confirm delete:'}, class: 'btn text-dark' %>
       </div>
     </div>
   </div>
